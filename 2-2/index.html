@@ -10,6 +10,7 @@
 
   gtag('config', 'G-1BMRVW9FE9');
 </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
 <meta charset="UTF-8"/>
 <!-- ***** icons ***** -->
 <link rel="icon" type="image/png" sizes="16x16"
@@ -40,19 +41,13 @@ width:fit-content;
 .pages{
 height:297mm !important;
 width:210mm !important;
+box-shadow:none !important;
 }
-.pages::before{
-content:"تمت طباعة هذا الملف من موقع: https://good-web-dev.github.io/biology-summary/2-2";
-position:absolute;
-bottom:10px;
-text-align:center;
-margin:0 4%;
-font-family:helvetica-world-bold;
-font-size:18px;
+.dont-print{
+display:none !important;
 }
-.page{
-height:280mm;
-margin:0 auto;
+.printed-from{
+display:block !important;
 }
 }
 @font-face{
@@ -63,154 +58,372 @@ body{
 display:flex;
 flex-direction:column;
 justify-content:center;
-width:253mm;
+width:100%;
+position:relative;
 }
 .pages{
 width:210mm;
 height:297mm;
 display:flex;
+flex-direction:column;
 position:relative;
 box-shadow:0px 0px 10px #00000055;
 margin:0px auto 15px auto;
-background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><linearGradient id="a7"><stop offset="0" stop-color="%23528020" stop-opacity="0"></stop><stop offset="1" stop-color="%23528020"></stop></linearGradient><circle fill="none" stroke="url(%23a7)" stroke-width="20" stroke-linecap="round" stroke-dasharray="0 44 0 44 0 44 0 44 0 360" cx="100" cy="100" r="70" transform-origin="center"><animateTransform type="rotate" attributeName="transform" calcMode="discrete" dur="1" values="360;324;288;252;216;180;144;108;72;36" repeatCount="indefinite"></animateTransform></circle></svg>') center center no-repeat;
+background: #fff center center no-repeat;
 background-size: 100px;
+}
+.pages-loader{
+position:absolute; 
+top:130mm;
+right:95mm;
+color:#528020;
+width:90px;
+height:90px;
+display:inline;
+animation:loading 1s linear infinite;
+border:8px double #52802044;
+border-top:8px double #528020;
+border-radius:50%;
+padding:;
+z-index:1;
 }
 img{
 user-select: none; 
-pointer-events: none; 
+pointer-events: none;
+background-repeat:no-repeat;
+background-position: center;
+background-size: contain;
+width: 210mm;
+height: 297mm;
+z-index:5;
+}
+.print{
+position:fixed;
+width:fit-content;
+top:10px;
+right:10px;
+font-size:30px;
+color:#528020;
+background-color:transparent;
+transition-duration:0.2s;
+border:none;
+z-index:1000;
+}
+.print-tag{
+font-size:18px;
+font-family:helvetica-world-bold;
+}
+.print:hover{
+transition-duration:0.2s;
+color:#208052;
+}
+.printed-from{
+position:absolute;
+bottom:3px;
+text-align:center;
+margin:0 25%;
+opacity:0.5;
+font-family:helvetica-world-bold;
+font-size:10px;
+z-index:10;
+display:none;
+}
+#loaderBox{
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-attachment:fixed;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+opacity: 1;
+transition: opacity 1s ease-out;
+z-index: 1005;
+animation:fade-in-out 5s infinite;
+background: #fff;
+background-size: 150px;
+}
+.loader{
+color:#528020;
+width:90px;
+height:90px;
+animation:loading 1s linear infinite;
+border:8px double #52802044;
+border-top:8px double #528020;
+border-radius:50%;
+padding:0px;
+}
+@keyframes fade-in-out{
+0%{
+opacity:1;
+}
+50%{
+opacity:0.5;
+}
+100%{
+opacity:1;
+}
+}
+@keyframes fade-in{
+from{
+opacity:0;
+}
+to{
+opacity:1;
+}
+}
+@keyframes loading{
+0%{
+transform:rotate(0deg);
+}
+100%{
+transform:rotate(360deg);
+}
 }
 </style>
 </head>
-<body> 
-<div class="pages">
-    <img src="https://good-web-dev.github.io/biology-summary/2-2/pages/biology-2-2-summary-1.svg" class="page"  alt="الصفحة الأولى">
+<body>
+<div id="loaderBox">
+<b class="loader">
+</b>
 </div>
 
-<div class="pages">
-    <img src="https://good-web-dev.github.io/biology-summary/2-2/pages/biology-2-2-summary-2.svg" class="page" loading="lazy" alt="الصفحة الثانية">
+<div class="content">
+<button class="print dont-print" onclick="printBtn()" title="طباعة"><i class="fa fas fa-print">
+<br>
+<span class="print-tag">طباعة</span>
+</i></button>
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة الأولى" data-img-number="1">
 </div>
 
-<div class="pages">
-    <img src="https://good-web-dev.github.io/biology-summary/2-2/pages/biology-2-2-summary-3.svg" class="page" loading="lazy" loading="lazy" alt="الصفحة الثالثة">
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة الثانية" loading=" " data-img-number="2">
 </div>
 
-<div class="pages">
-    <img src="https://good-web-dev.github.io/biology-summary/2-2/pages/biology-2-2-summary-4.svg" class="page" loading="lazy" alt="الصفحة الرابعة">
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة الثالثة" loading=" " data-img-number="3">
 </div>
 
-<div class="pages">
-    <img src="https://good-web-dev.github.io/biology-summary/2-2/pages/biology-2-2-summary-5.svg" class="page" loading="lazy" alt="الصفحة الخامسة">
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة الرابعة" loading=" " data-img-number="4">
 </div>
 
-<div class="pages">
-    <img src="https://good-web-dev.github.io/biology-summary/2-2/pages/biology-2-2-summary-6.svg" class="page" loading="lazy" alt="الصفحة السادسة">
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة الخامسة" loading=" " data-img-number="5">
 </div>
 
-<div class="pages">
-    <img src="https://good-web-dev.github.io/biology-summary/2-2/pages/biology-2-2-summary-7.svg" class="page" loading="lazy" alt="الصفحة السابعة">
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة السادسة" loading=" " data-img-number="6">
 </div>
 
-<div class="pages">
-    <img src="https://good-web-dev.github.io/biology-summary/2-2/pages/biology-2-2-summary-8.svg" class="page" loading="lazy" alt="الصفحة الثامنة">
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة السابعة" loading=" " data-img-number="7">
 </div>
 
-<div class="pages">
-    <img src="https://good-web-dev.github.io/biology-summary/2-2/pages/biology-2-2-summary-9.svg" class="page" loading="lazy" alt="الصفحة التاسعة">
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة الثامنة" loading=" " data-img-number="8">
 </div>
 
-<div class="pages">
-    <img src="https://good-web-dev.github.io/biology-summary/2-2/pages/biology-2-2-summary-10.svg" class="page" loading="lazy" alt="الصفحة العاشرة">
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة التاسعة" loading=" " data-img-number="9">
 </div>
 
-<div class="pages">
-    <img src="https://good-web-dev.github.io/biology-summary/2-2/pages/biology-2-2-summary-11.svg" class="page" loading="lazy" alt="الصفحة الحادية عشرة">
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة العاشرة" loading=" " data-img-number="10">
 </div>
 
-<div class="pages">
-    <img src="https://good-web-dev.github.io/biology-summary/2-2/pages/biology-2-2-summary-12.svg" class="page" loading="lazy" alt="الصفحة الثانية عشرة">
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة الحادية عشرة" loading=" " data-img-number="11">
 </div>
 
-<div class="pages">
-    <img src="https://good-web-dev.github.io/biology-summary/2-2/pages/biology-2-2-summary-13.svg" class="page" loading="lazy" alt="الصفحة الثالثة عشرة">
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة الثانية عشرة" loading=" " data-img-number="12">
 </div>
 
-<div class="pages">
-    <img src="https://good-web-dev.github.io/biology-summary/2-2/pages/biology-2-2-summary-14.svg" class="page" loading="lazy" alt="الصفحة الرابعة عشرة">
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة الثالثة عشرة" loading=" " data-img-number="13">
 </div>
 
-<div class="pages">
-    <img src="https://good-web-dev.github.io/biology-summary/2-2/pages/biology-2-2-summary-15.svg" class="page" loading="lazy" alt="الصفحة الخامسة عشرة">
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة الرابعة عشرة" loading=" " data-img-number="14">
 </div>
 
-<div class="pages">
-    <img src="https://good-web-dev.github.io/biology-summary/2-2/pages/biology-2-2-summary-16.svg" class="page" loading="lazy" alt="الصفحة السادسة عشرة">
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة الخامسة عشرة" loading=" " data-img-number="15">
 </div>
 
-<div class="pages">
-    <img src="https://good-web-dev.github.io/biology-summary/2-2/pages/biology-2-2-summary-17.svg" class="page" loading="lazy" alt="الصفحة السابعة عشرة">
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة السادسة عشرة" loading=" " data-img-number="16">
 </div>
 
-<div class="pages">
-    <img src="https://good-web-dev.github.io/biology-summary/2-2/pages/biology-2-2-summary-18.svg" class="page" loading="lazy" alt="الصفحة الثامنة عشرة">
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة السابعة عشرة" loading=" " data-img-number="17">
 </div>
 
-<div class="pages">
-    <img src="https://good-web-dev.github.io/biology-summary/2-2/pages/biology-2-2-summary-19.svg" class="page" loading="lazy" alt="الصفحة التاسعة عشرة">
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة الثامنة عشرة" loading=" " data-img-number="18">
 </div>
 
-<div class="pages">
-    <img src="https://good-web-dev.github.io/biology-summary/2-2/pages/biology-2-2-summary-20.svg" class="page" loading="lazy" alt="الصفحة العشرون">
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة التاسعة عشرة" loading=" " data-img-number="19">
 </div>
 
-<div class="pages">
-    <img src="https://good-web-dev.github.io/biology-summary/2-2/pages/biology-2-2-summary-21.svg" class="page" loading="lazy" alt="الصفحة الحادية والعشرون">
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة العشرون" loading=" " data-img-number="20">
 </div>
 
-<div class="pages">
-    <img src="https://good-web-dev.github.io/biology-summary/2-2/pages/biology-2-2-summary-22.svg" class="page" loading="lazy" alt="الصفحة الثانية والعشرون">
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة الحادية والعشرون" loading=" " data-img-number="21">
 </div>
 
-<div class="pages">
-    <img src="https://good-web-dev.github.io/biology-summary/2-2/pages/biology-2-2-summary-23.svg" class="page" loading="lazy" alt="الصفحة الثالثة والعشرون">
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة الثانية والعشرون" loading=" " data-img-number="22">
 </div>
 
-<div class="pages">
-    <img src="https://good-web-dev.github.io/biology-summary/2-2/pages/biology-2-2-summary-24.svg" class="page" loading="lazy" alt="الصفحة الرابعة والعشرون">
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة الثالثة والعشرون" loading=" " data-img-number="23">
 </div>
 
-<div class="pages">
-    <img src="https://good-web-dev.github.io/biology-summary/2-2/pages/biology-2-2-summary-25.svg" class="page" loading="lazy" alt="الصفحة الخامسة والعشرون">
+<div class="pages"><div class="pages-loader"></div>
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة الثالثة والعشرون" loading=" " data-img-number="23">
 </div>
 
-<div class="pages">
-    <img src="https://good-web-dev.github.io/biology-summary/2-2/pages/biology-2-2-summary-26.svg" class="page" loading="lazy" alt="الصفحة السادسة والعشرون">
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة الرابعة والعشرون" loading=" " data-img-number="24">
 </div>
 
-<div class="pages">
-    <img src="https://good-web-dev.github.io/biology-summary/2-2/pages/biology-2-2-summary-27.svg" class="page" loading="lazy" alt="الصفحة السابعة والعشرون">
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة الخامسة والعشرون" loading=" " data-img-number="25">
 </div>
 
-<div class="pages">
-    <img src="https://good-web-dev.github.io/biology-summary/2-2/pages/biology-2-2-summary-28.svg" class="page" loading="lazy" alt="الصفحة الثامنة والعشرون">
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة السادسة والعشرون" loading=" " data-img-number="26">
 </div>
 
-<div class="pages">
-    <img src="https://good-web-dev.github.io/biology-summary/2-2/pages/biology-2-2-summary-29.svg" class="page" loading="lazy" alt="الصفحة التاسعة والعشرون">
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة السابعة والعشرون" loading=" " data-img-number="27">
 </div>
 
-<div class="pages">
-    <img src="https://good-web-dev.github.io/biology-summary/2-2/pages/biology-2-2-summary-30.svg" class="page" loading="lazy" alt="الصفحة الثلاثون">
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة الثامنة والعشرون" loading=" " data-img-number="28">
 </div>
 
-<div class="pages">
-    <img src="https://good-web-dev.github.io/biology-summary/2-2/pages/biology-2-2-summary-31.svg" class="page" loading="lazy" alt="الصفحة الحادية والثلاثون">
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة التاسعة والعشرون" loading=" " data-img-number="29">
 </div>
 
-<div class="pages">
-    <img src="https://good-web-dev.github.io/biology-summary/2-2/pages/biology-2-2-summary-32.svg" class="page" loading="lazy" alt="الصفحة الثانية والثلاثون">
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة الثلاثون" loading=" " data-img-number="30">
+</div>
+
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة الحادية والثلاثون" loading=" " data-img-number="31">
+</div>
+
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة الثانية والثلاثون" loading=" " data-img-number="32">
+</div>
+
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة الثالثة والثلاثون" loading=" " data-img-number="33">
+</div>
+
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة الرابعة والثلاثون" loading=" " data-img-number="34">
+</div>
+
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة الخامسة والثلاثون" loading=" " data-img-number="35">
+</div>
+
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة السادسة والثلاثون" loading=" " data-img-number="36">
+</div>
+
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة السابعة والثلاثون" loading=" " data-img-number="37">
+</div>
+
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة الثامنة والثلاثون" loading=" " data-img-number="38">
+</div>
+
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة التاسعة والثلاثون" loading=" " data-img-number="39">
+</div>
+
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة الأربعون" loading=" " data-img-number="40">
+</div>
+
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة الحادية والأربعون" loading=" " data-img-number="41">
+</div>
+
+<!-- ***** <div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة الثانية والأربعون" loading=" " data-img-number="42">
+</div>
+
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة الثالثة والأربعون" loading=" " data-img-number="43">
+</div> ***** -->
 </div>
 <script>
+var contentElements = document.querySelectorAll('.content');
 
+for (var i = 0; i < contentElements.length; i++) {
+  contentElements[i].style.visibility = "hidden";
+}
+
+  window.setTimeout(function() {
+    var loaderBox = document.getElementById("loaderBox");
+    loaderBox.style.opacity = "0";
+    loaderBox.style.display = "none";
+    var contents = document.getElementsByClassName("content");
+    for (var i = 0; i < contents.length; i++) {
+      contents[i].style.visibility = "visible";
+      contents[i].style.animation = "fade-in 1s ease-in-out";
+    }
+  }, 1000);
+
+const imgTags = document.querySelectorAll('.page');
+
+imgTags.forEach((imgTag) => {
+  const imgNumber = imgTag.getAttribute('data-img-number');
+
+  const bgSrc = `url(https://good-web-dev.github.io/biology-summary/2-2/pages/png/biology-summary-2-2-${imgNumber}.png) no-repeat`;
+  const src = `https://good-web-dev.github.io/biology-summary/2-2/pages/svg/biology-summary-2-2-${imgNumber}.svg`;
+
+  imgTag.style.background = bgSrc;
+  imgTag.style.backgroundPosition = 'center';
+  imgTag.style.backgroundSize = 'contain';
+imgTag.style.backgroundRepeat = 'no-repeat';
+imgTag.style.width = '210mm';
+imgTag.style.height = '297mm';
+  imgTag.setAttribute('src', src);
+});
+  
+function printBtn(){
+const userChoice = confirm('عند طباعة هذا الملف تأكد من أن جميع الصفحات محملة في الموقع، بالإضافة إلى التأكد من عددها أيضًا وأنها كاملة.');
+if (userChoice) {
+  print();
+}
+}
+ 
+  var divElements = document.getElementsByClassName("pages");
+
+  var pElement = document.createElement("p");
+ pElement.classList.add('printed-from');
+  pElement.textContent = "تمت طباعة هذا الملف من موقع: https://good-web-dev.github.io/biology-summary/2-2";
+
+  for (var i = 0; i < divElements.length; i++) {
+    divElements[i].appendChild(pElement.cloneNode(true));
+  }
 </script>
 </body>
 </html>
