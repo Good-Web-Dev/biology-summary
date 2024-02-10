@@ -37,6 +37,7 @@ body{
 margin:0 !important;
 width:fit-content;
 -webkit-print-color-adjust: exact;
+background-color:#fff !important;
 }
 .pages{
 height:297mm !important;
@@ -50,9 +51,15 @@ display:none !important;
 display:block !important;
 }
 }
+</style>
+<style>
 @font-face{
 font-family:'helvetica-world-bold';
 src:url('https://good-web-dev.github.io/WebFonts/Helvetica-World-Bold.woff2') format('woff2');
+}
+::selection{
+color:#000;
+background-color:lavender;
 }
 body{
 display:flex;
@@ -60,6 +67,7 @@ flex-direction:column;
 justify-content:center;
 width:100%;
 position:relative;
+background-color:#fff;
 }
 .pages{
 width:210mm;
@@ -67,7 +75,7 @@ height:297mm;
 display:flex;
 flex-direction:column;
 position:relative;
-box-shadow:0px 0px 10px #00000055;
+box-shadow:0px 0px 15px #ffffff;
 margin:0px auto 15px auto;
 background: #fff center center no-repeat;
 background-size: 100px;
@@ -75,17 +83,17 @@ background-size: 100px;
 .pages-loader{
 position:absolute; 
 top:130mm;
-right:95mm;
+right:90mm;
 color:#528020;
 width:90px;
 height:90px;
 display:inline;
 animation:loading 1s linear infinite;
-border:8px double #52802044;
-border-top:8px double #528020;
+border:8px double #96c46444;
+border-top:8px double #96c464;
 border-radius:50%;
-padding:;
 z-index:1;
+background-color:transparent;
 }
 img{
 user-select: none; 
@@ -97,31 +105,36 @@ width: 210mm;
 height: 297mm;
 z-index:5;
 }
-.print{
+.print, .version{
 position:fixed;
 width:fit-content;
 top:10px;
-right:10px;
 font-size:30px;
-color:#528020;
+color:#96c464;
 background-color:transparent;
 transition-duration:0.2s;
 border:none;
 z-index:1000;
 }
-.print-tag{
+.print-tag, .version-tag{
 font-size:18px;
 font-family:helvetica-world-bold;
 }
-.print:hover{
+.print:hover:active, .version:hover:active{
 transition-duration:0.2s;
-color:#208052;
+opacity:0.6;
+}
+.print{
+right:10px;
+}
+.version{
+left:17px;
 }
 .printed-from{
 position:absolute;
 bottom:3px;
 text-align:center;
-margin:0 25%;
+margin:0 27%;
 opacity:0.5;
 font-family:helvetica-world-bold;
 font-size:10px;
@@ -141,20 +154,26 @@ justify-content: center;
 align-items: center;
 opacity: 1;
 transition: opacity 1s ease-out;
-z-index: 1005;
-animation:fade-in-out 5s infinite;
+z-index: 1800;
 background: #fff;
-background-size: 150px;
 }
 .loader{
 color:#528020;
-width:90px;
-height:90px;
+width:140px;
+height:140px;
 animation:loading 1s linear infinite;
 border:8px double #52802044;
 border-top:8px double #528020;
 border-radius:50%;
 padding:0px;
+}
+#loaderBox > span{
+font-family:helvetica-world-bold;
+text-align: center;
+position:relative;
+top:95px;
+font-size:22px;
+color:#528020;
 }
 @keyframes fade-in-out{
 0%{
@@ -183,18 +202,35 @@ transform:rotate(0deg);
 transform:rotate(360deg);
 }
 }
+noscript{
+color:darkred;
+font-family:helvetica-world-bold;
+font-size:30px;
+position:absolute;
+top:150px;
+}
 </style>
 </head>
 <body>
 <div id="loaderBox">
-<b class="loader">
-</b>
+<noscript>
+<i class="fas fa fa-exclamation-triangle"></i>
+ رجاءً فعّل javascript في متصفحك؛ ليعمل الموقع 
+<i class="fas fa fa-exclamation-triangle"></i>
+</noscript>
+<span>جارٍ التحميل...</span>
+<div class="loader">
+</div>
 </div>
 
 <div class="content">
-<button class="print dont-print" onclick="printBtn()" title="طباعة"><i class="fa fas fa-print">
+<button class="print dont-print" onclick="printBtn()"><i class="fa fas fa-print">
 <br>
 <span class="print-tag">طباعة</span>
+</i></button>
+<button class="version dont-print" onclick="versionBtn()"><i class="fa fas fa-info-circle">
+<br>
+<span class="version-tag">الإصدار</span>
 </i></button>
 <div class="pages"><div class="pages-loader"></div>
     <img src="" class="page" data-alt="الصفحة الأولى" data-img-number="1">
@@ -289,11 +325,6 @@ transform:rotate(360deg);
 </div>
 
 <div class="pages"><div class="pages-loader"></div>
-<div class="pages"><div class="pages-loader"></div>
-    <img src="" class="page" data-alt="الصفحة الثالثة والعشرون" loading=" " data-img-number="23">
-</div>
-
-<div class="pages"><div class="pages-loader"></div>
     <img src="" class="page" data-alt="الصفحة الرابعة والعشرون" loading=" " data-img-number="24">
 </div>
 
@@ -372,12 +403,11 @@ transform:rotate(360deg);
 <div class="pages"><div class="pages-loader"></div>
     <img src="" class="page" data-alt="الصفحة الثالثة والأربعون" loading=" " data-img-number="43">
 </div>
+<div class="pages"><div class="pages-loader"></div>
+    <img src="" class="page" data-alt="الصفحة الرابعة والأربعون" loading=" " data-img-number="44">
+</div>
 </div>
 
-<div class="pages"><div class="pages-loader"></div>
-    <img src="" class="page" data-alt="الصفحة الثالثة والأربعون" loading=" " data-img-number="44">
-</div>
-</div>
 <script>
 var contentElements = document.querySelectorAll('.content');
 
@@ -389,6 +419,7 @@ for (var i = 0; i < contentElements.length; i++) {
     var loaderBox = document.getElementById("loaderBox");
     loaderBox.style.opacity = "0";
     loaderBox.style.display = "none";
+document.body.style.background = "#000";
     var contents = document.getElementsByClassName("content");
     for (var i = 0; i < contents.length; i++) {
       contents[i].style.visibility = "visible";
@@ -414,10 +445,25 @@ imgTag.style.height = '297mm';
 });
   
 function printBtn(){
-const userChoice = confirm('عند طباعة هذا الملف تأكد من أن جميع الصفحات محملة في الموقع، بالإضافة إلى التأكد من عددها أيضًا وأنها كاملة.');
-if (userChoice) {
+const userChoiceInPrinting = confirm('تأكد من أن جميع الصفحات قد تم تحميلها بشكل صحيح قبل الطباعة. ملاحظة: قد يختلف التصميم عند الطباعة، وقد تستغرق الطباعة وقتًا طويلًا؛ لذا تحلَّ بالصبر.');
+if (userChoiceInPrinting) {
+    gtag('event', 'print', {
+      'event_category': 'Button',
+      'event_label': 'Print Button Click'
+});
   print();
 }
+}
+
+function versionBtn(){
+const userChoiceInVersion = confirm('هذا الإصدار الثاني، هل تريد رؤية مالذي تم تحديثه؟');
+gtag('event', 'button_click', {
+      'event_category': 'Button',
+      'event_label': 'Version Button Click'
+    });
+if (userChoiceInVersion) {
+    alert('• تعديل بعض الأخطاء الإملائية التي وُجدت. • إضافة بعض المعلومات المهمة في درسي الجهاز الهضمي، ومراحل نمو الجنين قبل الولادة. • تعديل خطأين في مخطط مكونات الجهاز المناعي.');
+  }
 }
  
   var divElements = document.getElementsByClassName("pages");
