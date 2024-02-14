@@ -3,15 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>ملخص الأحياء 3-2</title>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-CZ6HS683F8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-CZ6HS683F8');
-</script>
+<link rel="stylesheet" href="v-d-tables.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
 <style>
 @page{
 margin:0 !important;
@@ -25,10 +18,16 @@ margin:0 !important;
 -webkit-print-color-adjust: exact;
 }
 .page{
-height:297.5mm !important;
+height:297mm !important;
 width:210mm !important;
 padding-bottom:5px !important;
 }
+}
+.dont-print{
+display:none !important;
+}
+.printed-from{
+display:block !important;
 }
 </style>
 <style>
@@ -50,15 +49,15 @@ src:url("manal-bold.woff2") format("woff2");
 }
 @font-face{
 font-family:'helvetica-world-bold';
-src:url('https://good-web-dev.github.io/biology-summary/Helvetica-World-Bold.woff2') format('woff2');
+src:url('https://good-web-dev.github.io/biology-summary/2-3/Helvetica-World-Bold.woff2') format('woff2');
 }
 @font-face{
 font-family:'helvetica-world';
-src:url('https://good-web-dev.github.io/biology-summary/Helvetica-World.woff2') format('woff2');
+src:url('https://good-web-dev.github.io/biology-summary/2-3/Helvetica-World.woff2') format('woff2');
 }
 @font-face{
 font-family:'icons';
-src:url('https://good-web-dev.github.io/biology-summary/icons.woff2') format('woff2');
+src:url('https://good-web-dev.github.io/biology-summary/2-3/icons.woff2') format('woff2');
 }
 @font-face{
 font-family:'quran-font';
@@ -98,22 +97,59 @@ to{
 opacity:1;
 }
 }
+.print, .version{
+position:fixed;
+width:fit-content;
+top:10px;
+font-size:30px;
+color:#96c464;
+background-color:transparent;
+transition-duration:0.2s;
+border:none;
+z-index:1000;
+}
+.print-tag, .version-tag{
+font-size:18px;
+font-family:helvetica-world-bold;
+}
+.print:hover:active, .version:hover:active{
+transition-duration:0.2s;
+opacity:0.6;
+}
+.print{
+right:10px;
+}
+.version{
+left:17px;
+}
+.printed-from{
+position:absolute;
+bottom:3px;
+text-align:center;
+margin:0 27%;
+opacity:0.5;
+font-family:helvetica-world-bold;
+font-size:10px;
+z-index:10;
+display:none;
+}
 .page{
-background-image:url('https://good-web-dev.github.io/biology-summary/bg.svg');
+background-image:url('https://good-web-dev.github.io/biology-summary/2-3/bg.svg');
 background-size:cover;
 background-repeat:no-repeat;
-border:0px red solid;
+border:0px #000 solid;
+box-shadow:0 0 15px #00000055;
 position:relative;
 height:297.5mm;
 width:212mm;
 padding:20px 10px;
-margin:1px auto;
+margin:15px auto;
 }
 .page-number{
 position:absolute;
 bottom:-22px;
 left:10px;
-border:2px solid #000;
+border:3px solid #000;
 border-bottom:0;
 width:25px;
 height:30px;
@@ -170,13 +206,13 @@ margin:5px 0 0 0;
 .important-information{
 background-color:var(--light-red);
 }
-table, td, th{
+.table, .td, .th{
 border-collapse:collapse;
 border:1.5px var(--light-green) solid;
 margin:9px auto;
 width:80%;
 }
-th{
+.th{
 font-weight:normal;
 font-family:helvetica-world-bold;
 background-color:var(--light-olive);
@@ -185,19 +221,27 @@ padding:12px 10px;
 width:40%;
 font-size:20px;
 }
-td{
+.td{
 width:40%;
 font-family:helvetica-world;
 text-align:center;
 padding:12px 10px;
 font-size:18px;
 }
-tr:nth-child(odd){
+.tr:nth-child(odd){
 background-color:var(--green);
 }
 </style>
 </head>
 <body>
+<button class="print dont-print" onclick="printBtn()"><i class="fa fas fa-print">
+<br>
+<span class="print-tag">طباعة</span>
+</i></button>
+<button class="version dont-print" onclick="versionBtn()"><i class="fa fas fa-info-circle">
+<br>
+<span class="version-tag">الإصدار</span>
+</i></button>
 <div class="page">
 <p class="basmalah-container">
 <span class="basmalah">﷽</span>
@@ -217,27 +261,27 @@ background-color:var(--green);
 <span class="goals-content">
 ١. مالفرق بين عظام الهيكل المحوري والهيكل الطرفي؟
 </span>
-<table>
-<tr>
-<th>الهيكل المحوري</th>
-<th>الهيكل الطرفي</th>
+<table class="table">
+<tr class="tr">
+<th class="th">الهيكل المحوري</th>
+<th class="th">الهيكل الطرفي</th>
 </tr>
-<tr>
-<td>عدد العظام ٨٠.</td>
-<td>عدد العظام ١٢٦.</td>
+<tr class="tr">
+<td class="td">عدد العظام ٨٠.</td>
+<td class="td">عدد العظام ١٢٦.</td>
 </tr>
-<tr>
-<td>يتكون من الجمجمة والعمود الفقري، والأضلاع، والقص.</td>
-<td>يتكون من الطرف العلوي، والطرف السفلي، وعظام الكتف، وعظام الحوض.</td>
+<tr class="tr">
+<td class="td">يتكون من الجمجمة والعمود الفقري، والأضلاع، والقص.</td>
+<td class="td">يتكون من الطرف العلوي، والطرف السفلي، وعظام الكتف، وعظام الحوض.</td>
 </tr>
-<tr>
-<td>
+<tr class="tr">
+<td class="td">
 - عدد عظام القص: عظمة واحدة.
 <br>- عدد عظام الجمجمة: ٢٩.
 <br>- عدد عظام العمود الفقري: ٢٦. 
 <br>- عدد عظام الأضلاع: ٢٤.
 </td>
-<td>
+<td class="td">
 - عدد عظام الطرف العلوي: ٦٠.
 <br>- عدد عظام الطرف السفلي: ٦٠.
 <br>- عدد عظام الكتف: ٤.
@@ -260,8 +304,190 @@ background-color:var(--green);
 ٣. لخّص وظائف الجهاز الهيكلي.
 </span>
 <br>
-<img src="https://good-web-dev.github.io/biology-summary/table2-1.svg" alt="الجدول 2-1" width="500px" style="position: relative; right:130px; top:-70px;">
+<img src="https://good-web-dev.github.io/biology-summary/2-3/table2-1.svg" alt="الجدول 2-1" width="500px" style="position: relative; right:130px; top:-70px;">
 <p class="page-number">٢</p>
 </div>
+<div class="page">
+<br><br>
+<div class="chapters">
+<div>
+<table>
+<tr>
+<th colspan="3">الفصل الأول: الجهازان الهيكليان العظمي والعضلي</th>
+</tr>
+<tr>
+<th class="number">#</th>
+<th>المفردة</th>
+<th>التعريف</th>
+</tr>
+<tr>
+<th class="number">١</th>
+<td>الهيكل المحوري</td>
+<td>أحد قسمي الجهاز الهيكلي في الإنسان ويشمل عظام العمود الفقري والأضلاع والجمجمة وعظمة القصّ.</td>
+</tr>
+<tr>
+<th class="number">٢</th>
+<td>الهيكل الطرفي</td>
+<td>يتكون من عظام الطرف العلوي والطرف السفلي وعظام الكتف وعظام الحوض.</td>
+</tr>
+<tr>
+<th class="number">٣</th>
+<td>العظم الكثيف</td>
+<td>طبقة العظم الخارجية القوية والكثيفة التي تحوي أنظمة هافرس.</td>
+</tr>
+<tr>
+<th class="number">٤</th>
+<td>الخلية العظمية</td>
+<td>هي مكون من مكونات النسيج العظمي لها امتدادات سيتوبلازمية وتتصل بالخلايا الأخرى والأوعية الدموية القريبة.</td>
+</tr>
+<tr>
+<th class="number">٥</th>
+<td>العظم الإسفنجي</td>
+<td>طبقة العظم الداخلية الخفيفة التي تحوي تجاويف مليئة بالنخاع العظمي.</td>
+</tr>
+<tr>
+<th class="number">٦</th>
+<td>نخاع العظم الأحمر</td>
+<td>نوع من النخاع العظمي ينتج خلايا الدم البيضاء والحمراء والصفائح الدموية.</td>
+</tr>
+<tr>
+<th class="number">٧</th>
+<td>نخاع العظم الأصفر</td>
+<td>تكون من دهون مخزنة فقط.</td>
+</tr>
+<tr>
+<th class="number">٨</th>
+<td>الخلية العظمية البانية</td>
+<td>الخلايا التي تكون العظم وتبنيه.</td>
+</tr>
+<tr>
+<th class="number">٩</th>
+<td>تكوين العظام (التعظم)</td>
+<td>عملية تكوين العظم بواسطة الخلايا العظمية البانية.</td>
+</tr>
+<tr>
+<th class="number">١٠</th>
+<td>الخلية العظمية الهادمة</td>
+<td>الخلايا التي تحطم خلايا العظم.</td>
+</tr>
+<tr>
+<th class="number">١١</th>
+<td>الأربطة</td>
+<td>حزم من النسيج الضام القوي يربط العظام ببعضها مع بعض.</td>
+</tr>
+<tr>
+<th class="number">١٢</th>
+<td>العضلة الملساء</td>
+<td>عضلات تبطن معظم الأعضاء الداخلية المجوفة في الجسم ومنها المعدة والأمعاء والرحم.</td>
+</tr>
+<tr>
+<th class="number">١٣</th>
+<td>العضلة اللاإرادية</td>
+<td>العضلات التي لا يسيطر الجسم على حركتها.</td>
+</tr>
+<tr>
+<th class="number">١٤</th>
+<td>العضلة القلبية</td>
+<td>عضلات لاإرادية توجد في القلب فقط.</td>
+</tr>
+<tr>
+<th class="number">١٥</th>
+<td>العضلة الهيكلية</td>
+<td>عضلات مخططة ينتج عنها حركة الجسم عندما تنقبض وهي مرتبطة مع العظام بالأوتار.</td>
+</tr>
+<tr>
+<th class="number">١٦</th>
+<td>العضلات الإرادية</td>
+<td>العضلات الهيكلية التي يستطيع الجسم التحكم في حركتها.</td>
+</tr>
+<tr>
+<th class="number">١٧</th>
+<td>الوتر</td>
+<td>حزمة من نسيج ضام قاسٍ تربط العضلات مع العظام.</td>
+</tr>
+<tr>
+<th class="number">١٨</th>
+<td>اللييف العضلي</td>
+<td>ألياف عضلية صغيرة جدًا تساعد على انقباض العضلات، تتكون من خيوط بروتين الأكتين والميوسين.</td>
+</tr>
+<tr>
+<th class="number">١٩</th>
+<td>الميوسين</td>
+<td>خيوط بروتينية توجد في الخلايا العضلية وتعمل مع الأكتين على انقباض العضلات.</td>
+</tr>
+<tr>
+<th class="number">٢٠</th>
+<td>الأكتين</td>
+<td>خيوط بروتينية رفيعة في الخلايا العضلية تعمل مع خيوط الميوسين على انقباض العضلات وانبساطها.</td>
+</tr>
+<tr>
+<th class="number">٢١</th>
+<td>القطعة العضلية</td>
+<td>وحدة الوظيفة في العضلات الهيكلية التي تنقبض وتتكون من ألياف عضلية.</td>
+</tr>
+</table>
+</div>
+</div>
+<p class="page-number">٣</p>
+</div>
+<script>
+var table = document.querySelectorAll('table');
+for (var i = 0; i < table.length; i++) {
+  var ths = table[i].querySelectorAll('td:nth-child(2)');
+  for (var j = 0; j < ths.length; j++) {
+    ths[j].addEventListener('click', function(event) {
+      var parentTr = event.target.parentNode;
+      var siblingTd = parentTr.querySelector('td:nth-child(3)');
+      siblingTd.classList.toggle('hidden-td');
+    });
+  }
+}
+
+var chapters = document.querySelectorAll('.chapters');
+chapters.forEach(function(chapter) {
+  var th = chapter.querySelectorAll('table th[colspan="3"]');
+  var tds = chapter.querySelectorAll('table td');
+
+  th.forEach(function(element) {
+    element.addEventListener('click', function() {
+      tds.forEach(function(td) {
+        td.classList.toggle('hidden-table');
+      });
+    });
+  });
+});
+
+function printBtn(){
+const userChoiceInPrinting = confirm('تأكد من أن جميع الصفحات قد تم تحميلها بشكل صحيح قبل الطباعة. ملاحظة: قد يختلف التصميم عند الطباعة، وقد تستغرق الطباعة وقتًا طويلًا؛ لذا تحلَّ بالصبر.');
+if (userChoiceInPrinting) {
+    gtag('event', 'print_button_click', {
+      'event_category': 'Button',
+      'event_label': 'print_button_click'
+});
+  print();
+}
+}
+
+function versionBtn(){
+const userChoiceInVersion = confirm('هذا الإصدار الثاني، هل تريد رؤية مالذي تم تحديثه؟');
+gtag('event', 'version_button_clicks', {
+      'event_category': 'Button',
+      'event_label': 'version_button_clicks'
+    });
+if (userChoiceInVersion) {
+    alert('• تعديل بعض الأخطاء الإملائية التي وُجدت. • إضافة بعض المعلومات المهمة في درسي الجهاز الهضمي، ومراحل نمو الجنين قبل الولادة. • تعديل خطأين في مخطط مكونات الجهاز المناعي.');
+  }
+}
+ 
+  var divElements = document.getElementsByClassName("pages");
+
+  var pElement = document.createElement("p");
+ pElement.classList.add('printed-from');
+  pElement.textContent = "تمت طباعة هذا الملف من موقع: https://good-web-dev.github.io/biology-summary/2-2";
+
+  for (var i = 0; i < divElements.length; i++) {
+    divElements[i].appendChild(pElement.cloneNode(true));
+  }
+</script>
 </body>
 </html>

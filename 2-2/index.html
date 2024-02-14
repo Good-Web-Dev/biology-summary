@@ -75,7 +75,7 @@ height:297mm;
 display:flex;
 flex-direction:column;
 position:relative;
-box-shadow:0px 0px 15px #ffffff;
+box-shadow:0px 0px 15px #00000055;
 margin:0px auto 15px auto;
 background: #fff center center no-repeat;
 background-size: 100px;
@@ -110,7 +110,7 @@ position:fixed;
 width:fit-content;
 top:10px;
 font-size:30px;
-color:#96c464;
+color:#528020;
 background-color:transparent;
 transition-duration:0.2s;
 border:none;
@@ -419,7 +419,6 @@ for (var i = 0; i < contentElements.length; i++) {
     var loaderBox = document.getElementById("loaderBox");
     loaderBox.style.opacity = "0";
     loaderBox.style.display = "none";
-document.body.style.background = "#000";
     var contents = document.getElementsByClassName("content");
     for (var i = 0; i < contents.length; i++) {
       contents[i].style.visibility = "visible";
@@ -447,22 +446,22 @@ imgTag.style.height = '297mm';
 function printBtn(){
 const userChoiceInPrinting = confirm('تأكد من أن جميع الصفحات قد تم تحميلها بشكل صحيح قبل الطباعة. ملاحظة: قد يختلف التصميم عند الطباعة، وقد تستغرق الطباعة وقتًا طويلًا؛ لذا تحلَّ بالصبر.');
 if (userChoiceInPrinting) {
-    gtag('event', 'print', {
+    gtag('event', 'print_button_click', {
       'event_category': 'Button',
-      'event_label': 'Print Button Click'
+      'event_label': 'print_button_click'
 });
   print();
 }
 }
 
 function versionBtn(){
-const userChoiceInVersion = confirm('هذا الإصدار الثاني، هل تريد رؤية مالذي تم تحديثه؟');
-gtag('event', 'button_click', {
+const userChoiceInVersion = confirm('هذا الإصدار الثالث، هل تريد رؤية تفاصيل الإصدار؟');
+gtag('event', 'version_button_clicks', {
       'event_category': 'Button',
-      'event_label': 'Version Button Click'
+      'event_label': 'version_button_clicks'
     });
 if (userChoiceInVersion) {
-    alert('• تعديل بعض الأخطاء الإملائية التي وُجدت. • إضافة بعض المعلومات المهمة في درسي الجهاز الهضمي، ومراحل نمو الجنين قبل الولادة. • تعديل خطأين في مخطط مكونات الجهاز المناعي.');
+    alert('• تعديل أخطاء في الفرق بين الخلية العصبية في وقت الراحة ووقت النشاط.');
   }
 }
  
