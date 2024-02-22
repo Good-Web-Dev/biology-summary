@@ -2,246 +2,82 @@
 <html lang="en" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>ملخص الأحياء 3-2</title>
-<link rel="stylesheet" href="v-d-tables.css">
+<title>ملخص لمادة الأحياء 3-2</title>
+<link rel="stylesheet" href="styles.css">
+<meta name="viewport" content="width=device-width, initial-scale=0.45"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
-<style>
-@page{
-margin:0 !important;
-width:210mm !important;
-height:297mm !important;
-padding:0 !important;
-}
-@media print{
-body{
-margin:0 !important;
--webkit-print-color-adjust: exact;
-}
-.page{
-height:297mm !important;
-width:210mm !important;
-padding-bottom:5px !important;
-}
-}
-.dont-print{
-display:none !important;
-}
-.printed-from{
-display:block !important;
-}
-</style>
-<style>
-@font-face{
-font-family:"arial";
-src:url("Arial.woff2") format("woff2");
-}
-@font-face{
-font-family:"arial-bold";
-src:url("Arial-Bold.woff2") format("woff2");
-}
-@font-face{
-font-family:"lotus";
-src:url("lotus.woff2") format("woff2");
-}
-@font-face{
-font-family:"manal-bold";
-src:url("manal-bold.woff2") format("woff2");
-}
-@font-face{
-font-family:'helvetica-world-bold';
-src:url('https://good-web-dev.github.io/biology-summary/2-3/Helvetica-World-Bold.woff2') format('woff2');
-}
-@font-face{
-font-family:'helvetica-world';
-src:url('https://good-web-dev.github.io/biology-summary/2-3/Helvetica-World.woff2') format('woff2');
-}
-@font-face{
-font-family:'icons';
-src:url('https://good-web-dev.github.io/biology-summary/2-3/icons.woff2') format('woff2');
-}
-@font-face{
-font-family:'quran-font';
-src:url('Quran-Font.woff2') format('woff2');
-}
-:root{
---light-red:#Fdd4c3;
---lime:#D5FCA8;
---peach:#ffdfaa;
---dark-olive:#528020;
---light-olive:#74A242;
---green:#E7F2DC;
---light-green:#CEE5B7;
---light-gray: #CCCCCC;
---pale-blue: #cae8f2;
---light-yellow: #FDF3BD;
---light-purple: #e7c9f1;
-}
-::selection{
-color:#fff;
-background-color:steelblue;
-}
-img, br{
-user-select:none;
-}
-body{
-display: flex;
-justify-content: center;
-flex-direction:column;
-margin:0;
-}
-@keyframes fade-in{
-from{
-opacity:0;
-}
-to{
-opacity:1;
-}
-}
-.print, .version{
-position:fixed;
-width:fit-content;
-top:10px;
-font-size:30px;
-color:#96c464;
-background-color:transparent;
-transition-duration:0.2s;
-border:none;
-z-index:1000;
-}
-.print-tag, .version-tag{
-font-size:18px;
-font-family:helvetica-world-bold;
-}
-.print:hover:active, .version:hover:active{
-transition-duration:0.2s;
-opacity:0.6;
-}
-.print{
-right:10px;
-}
-.version{
-left:17px;
-}
-.printed-from{
-position:absolute;
-bottom:3px;
-text-align:center;
-margin:0 27%;
-opacity:0.5;
-font-family:helvetica-world-bold;
-font-size:10px;
-z-index:10;
-display:none;
-}
-.page{
-background-image:url('https://good-web-dev.github.io/biology-summary/2-3/bg.svg');
-background-size:cover;
-background-repeat:no-repeat;
-border:0px #000 solid;
-box-shadow:0 0 15px #00000055;
-position:relative;
-height:297.5mm;
-width:212mm;
-padding:20px 10px;
-margin:15px auto;
-}
-.page-number{
-position:absolute;
-bottom:-22px;
-left:10px;
-border:3px solid #000;
-border-bottom:0;
-width:25px;
-height:30px;
-padding:4px 2px 2px 2px;
-text-align:center;
-border-radius:20px 20px 0 0;
-overflow:visible;
-font-family:helvetica-world-bold;
-font-size:22px;
-}
-.basmalah-container{
-display:flex;
-}
-.basmalah{
-font-family:icons;
-font-size:60px;
-text-align:center;
-margin:-10px auto 0 auto;
-display:inline;
-top:-20px;
-}
-.lesson-title{
-background-color:var(--peach);
-}
-.lesson-title, .main-idea, .goals, .important-information{
-width:fit-content;
-padding:1px 3px;
-font-family:helvetica-world-bold;
-font-size:24px;
-border-radius:4px;
-position:relative;
-}
-.main-idea-content, .goals-content, .goals-content-nobg, .important-information-content, .important-information-content-nobg{
-border-radius:4px;
-width:190mm;
-padding:2px 3px;
-font-family:helvetica-world;
-font-size:24px;
-position:relative;
-top:-7px;
-line-height:1.6;
-}
-.main-idea, .main-idea-content{
-background-color:var(--light-yellow);
-}
-.goals, .goals-content{
-background-color:var(--lime);
-}
-.goals-content-nobg{
-background-color:transparent;
-display:block;
-margin:5px 0 0 0;
-}
-.important-information{
-background-color:var(--light-red);
-}
-.table, .td, .th{
-border-collapse:collapse;
-border:1.5px var(--light-green) solid;
-margin:9px auto;
-width:80%;
-}
-.th{
-font-weight:normal;
-font-family:helvetica-world-bold;
-background-color:var(--light-olive);
-color:white;
-padding:12px 10px;
-width:40%;
-font-size:20px;
-}
-.td{
-width:40%;
-font-family:helvetica-world;
-text-align:center;
-padding:12px 10px;
-font-size:18px;
-}
-.tr:nth-child(odd){
-background-color:var(--green);
-}
-</style>
+<!-- ***** icons ***** -->
+<link rel="icon" type="image/png" sizes="16x16"
+href="https://good-web-dev.github.io/biology-summary/2-3/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32"
+href="https://good-web-dev.github.io/biology-summary/2-3/favicon-32x32.png">
+<link rel="icon" type="image/svg+xml" sizes="500x500" href="https://good-web-dev.github.io/biology-summary/2-3/icon.svg">
+<link rel="shortcut icon" type="image/x-icon"
+href="https://good-web-dev.github.io/biology-summary/2-3/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180"
+href="https://good-web-dev.github.io/biology-summary/2-3/apple-touch-icon.png"> 
+<link rel="mask-icon"
+href="https://good-web-dev.github.io/biology-summary/2-3/icon.svg" color="#f3eced">
+<meta property="og:image" content="https://good-web-dev.github.io/biology-summary/2-3/og-image.png"> 
 </head>
 <body>
-<button class="print dont-print" onclick="printBtn()"><i class="fa fas fa-print">
+<div id="loaderBox">
+<noscript>
+<i class="fas fa fa-exclamation-triangle"></i>
+ رجاءً فعّل javascript في متصفحك؛ ليعمل الموقع 
+<i class="fas fa fa-exclamation-triangle"></i>
+</noscript>
+<span>جارٍ التحميل...</span>
+<div class="loader">
+</div>
+</div>
+<div class="content">
+<header class="dont-print">
+<button class="print header-btns dont-print" onclick="printBtn()"><i class="fa fas fa-print">
 <br>
 <span class="print-tag">طباعة</span>
 </i></button>
-<button class="version dont-print" onclick="versionBtn()"><i class="fa fas fa-info-circle">
+<button class="version header-btns dont-print" onclick="versionBtn()"><i class="fa fas fa-info-circle">
 <br>
 <span class="version-tag">الإصدار</span>
 </i></button>
+<button class="color-inversion header-btns dont-print" onclick="colorInversionBtn()"><i class="fa fas fa-adjust">
+<br>
+<span class="color-inversion-tag">عكس الألوان</span>
+</i></button>
+<button class="exam header-btns dont-print" onclick="examBtn()"><i class="fa fas fa-brain">
+<br>
+<span class="exam-tag">اختبار</span>
+</i></button>
+<h3 class="header-title dont-print">
+ملخص لمادة الأحياء ٢-٣
+</h3>
+</header>
+<div class="pages cover" data-title="ملخص لمادة الأحياء ٢-٣">
+<img data-img-name="cover" style="width:210mm; height:297mm;">
+</div>
+<div class="pages" data-title="الفهرس">
+<div class="page no-page-number">
+<table class="index-table" style="width:85%;">
+<tr>
+<th colspan="2" class="th" style="background-color:#528020;">الفهرس</th>
+</tr>
+<tr>
+<th class="th" style="width:70%;">الموضوع</th>
+<th class="th" style="width:30%;">رقم الصفحة</th>
+</tr>
+<tr class="tr">
+<td class="td">الفصل الأول</td>
+<td class="td">١</td>
+</tr>
+<tr class="tr">
+<td class="td">جدول تعاريف مصطلحات الفصل الأول</td>
+<td class="td">٣</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="pages" data-title="الفصل (الدرس الأول - الجهاز الهيكلي العظمي)">
 <div class="page">
 <p class="basmalah-container">
 <span class="basmalah">﷽</span>
@@ -294,21 +130,21 @@ background-color:var(--green);
 ٢. كيف يتكون العظم الجديد؟
 </span>
 <span class="goals-content-nobg">
-تتكون العظام الجديدة من الغضاريف، وأثناء نمو الجنين تنمو خلايا الغضاريف التي فيه لتتحول إلى خلايا عظمية بانية، ويُعرف تكوين العظام بعملية التعظم. في جسم الإنسان البالغ، يتكون الهيكل العظمي من العظام باستثناء بعض الأجزاء مثل مقدمة الأنف وصيوان الأذن والأقراص بين الفقرات والمفاصل المتحركة فهي غضاريف، وتعد خلايا العظمية البانية مسؤولة عن نمو العظام وتجديدها.
+تتكون العظام الجديدة من الغضاريف، وأثناء نمو الجنين تنمو خلايا <del>الغضاريف</del> التي فيه لتتحول إلى خلايا عظمية بانية، ويُعرف تكوين العظام بعملية التعظم. في جسم الإنسان البالغ، يتكون الهيكل العظمي من العظام باستثناء بعض الأجزاء مثل مقدمة الأنف وصيوان الأذن والأقراص بين الفقرات والمفاصل المتحركة فهي غضاريف، وتعد خلايا العظمية البانية مسؤولة عن نمو العظام وتجديدها.
 </span>
-<p class="page-number">١</p>
 </div>
+</div>
+<div class="pages">
 <div class="page">
-<br><br>
 <span class="goals-content">
 ٣. لخّص وظائف الجهاز الهيكلي.
 </span>
 <br>
-<img src="https://good-web-dev.github.io/biology-summary/2-3/table2-1.svg" alt="الجدول 2-1" width="500px" style="position: relative; right:130px; top:-70px;">
-<p class="page-number">٢</p>
+<img data-img-name="table2-1" alt="الجدول 2-1" style="position: relative; right:130px; top:-70px; width: 500px;">
 </div>
+</div>
+<div class="pages" data-title="جدول تعاريف مصطلحات الفصل الأول">
 <div class="page">
-<br><br>
 <div class="chapters">
 <div>
 <table>
@@ -428,66 +264,9 @@ background-color:var(--green);
 </table>
 </div>
 </div>
-<p class="page-number">٣</p>
 </div>
-<script>
-var table = document.querySelectorAll('table');
-for (var i = 0; i < table.length; i++) {
-  var ths = table[i].querySelectorAll('td:nth-child(2)');
-  for (var j = 0; j < ths.length; j++) {
-    ths[j].addEventListener('click', function(event) {
-      var parentTr = event.target.parentNode;
-      var siblingTd = parentTr.querySelector('td:nth-child(3)');
-      siblingTd.classList.toggle('hidden-td');
-    });
-  }
-}
-
-var chapters = document.querySelectorAll('.chapters');
-chapters.forEach(function(chapter) {
-  var th = chapter.querySelectorAll('table th[colspan="3"]');
-  var tds = chapter.querySelectorAll('table td');
-
-  th.forEach(function(element) {
-    element.addEventListener('click', function() {
-      tds.forEach(function(td) {
-        td.classList.toggle('hidden-table');
-      });
-    });
-  });
-});
-
-function printBtn(){
-const userChoiceInPrinting = confirm('تأكد من أن جميع الصفحات قد تم تحميلها بشكل صحيح قبل الطباعة. ملاحظة: قد يختلف التصميم عند الطباعة، وقد تستغرق الطباعة وقتًا طويلًا؛ لذا تحلَّ بالصبر.');
-if (userChoiceInPrinting) {
-    gtag('event', 'print_button_click', {
-      'event_category': 'Button',
-      'event_label': 'print_button_click'
-});
-  print();
-}
-}
-
-function versionBtn(){
-const userChoiceInVersion = confirm('هذا الإصدار الثاني، هل تريد رؤية مالذي تم تحديثه؟');
-gtag('event', 'version_button_clicks', {
-      'event_category': 'Button',
-      'event_label': 'version_button_clicks'
-    });
-if (userChoiceInVersion) {
-    alert('• تعديل بعض الأخطاء الإملائية التي وُجدت. • إضافة بعض المعلومات المهمة في درسي الجهاز الهضمي، ومراحل نمو الجنين قبل الولادة. • تعديل خطأين في مخطط مكونات الجهاز المناعي.');
-  }
-}
- 
-  var divElements = document.getElementsByClassName("pages");
-
-  var pElement = document.createElement("p");
- pElement.classList.add('printed-from');
-  pElement.textContent = "تمت طباعة هذا الملف من موقع: https://good-web-dev.github.io/biology-summary/2-2";
-
-  for (var i = 0; i < divElements.length; i++) {
-    divElements[i].appendChild(pElement.cloneNode(true));
-  }
-</script>
+</div>
+</div>
+<script src="scripts.js"></script>
 </body>
 </html>
