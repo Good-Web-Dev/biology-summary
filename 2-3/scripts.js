@@ -15,6 +15,43 @@ for (var i = 0; i < contentElements.length; i++) {
     }
   }, 3000);
 
+const texts = [
+      "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ، سُبْحَانَ اللَّهِ الْعَظِيمِ",
+      "لَا إلَه إلّا اللهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلُّ شَيْءِ قَدِيرُ",
+      "لا حَوْلَ وَلا قُوَّةَ إِلا بِاللَّهِ",
+      "الْلَّهُم صَلِّ وَسَلِم وَبَارِك عَلَى سَيِّدِنَا مُحَمَّد",
+      "سُبْحَانَ الْلَّهِ، وَالْحَمْدُ لِلَّهِ، وَلَا إِلَهَ إِلَّا الْلَّهُ، وَالْلَّهُ أَكْبَرُ",
+      "الحَمْدُ للّهِ رَبِّ الْعَالَمِينَ",
+      "أَستغفِرُ اللهَ الَّذي لا إلَهَ إلَّا هو الحيُّ القيُّومُ، وأَتوبُ إليه",
+      "اللَّهُ أَكْبَرُ كَبِيرًا، وَالْحَمْدُ لِلَّهِ كَثِيرًا، وَسُبْحَانَ اللَّهِ بُكْرَةً وَأَصِيلاً",
+      "الْحَمْدُ لِلَّهِ حَمْدًا كَثِيرًا طَيِّبًا مُبَارَكًا فِيهِ",
+      "اللَّهمَّ أعنِّي على ذِكْرِكَ، وشُكْرِكَ، وحُسنِ عبادتِكَ"
+    ];
+
+    let previousText = null;
+
+    function getRandomText() {
+      const randomIndex = Math.floor(Math.random() * texts.length);
+      const newText = texts[randomIndex];
+
+      if (newText === previousText) {
+        return getRandomText();
+      }
+
+      const footerText = document.getElementById('footer-text');
+      footerText.style.opacity = 0;
+      setTimeout(() => {
+        footerText.textContent = newText;
+        footerText.style.opacity = 1;
+      }, 500);
+
+      previousText = newText;
+
+      setTimeout(getRandomText, 15000);
+    }
+
+    getRandomText();
+
 function printBtn(){
 const userChoiceInPrinting = confirm('تأكد من أن جميع الصفحات قد تم تحميلها بشكل صحيح قبل الطباعة. ملاحظة: قد يختلف التصميم عند الطباعة، وقد تستغرق الطباعة وقتًا طويلًا؛ لذا تحلَّ بالصبر.');
 if (userChoiceInPrinting) {
