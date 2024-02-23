@@ -16,9 +16,6 @@ width:210mm !important;
 .pages{
 box-shadow:0 0 0 !important;
 }
-.cover{
-margin-top:-10px !important;
-}
 .dont-print{
 display:none !important;
 }
@@ -374,7 +371,7 @@ border-collapse: collapse;
 font-family:'helvetica-world';
 text-align:center;
 padding:7px;   
-font-size:15px;
+font-size:16px;
 font-weight:normal;
 border:var(--border);
 }
