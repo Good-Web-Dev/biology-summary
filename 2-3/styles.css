@@ -11,12 +11,11 @@ margin:0 !important;
 }
 .pages{
 box-shadow:0 0 0 !important;
-height:297mm !important;
-width:210mm !important;
 }
 .page{
 height:297mm !important;
 width:210mm !important;
+margin-top:20px !important;
 }
 .dont-print{
 display:none !important;
