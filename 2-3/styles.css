@@ -14,6 +14,10 @@ box-shadow:0 0 0 !important;
 height:297mm !important;
 width:210mm !important;
 }
+.page{
+height:297mm !important;
+width:210mm !important;
+}
 .dont-print{
 display:none !important;
 }
