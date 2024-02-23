@@ -9,7 +9,7 @@ body{
 margin:0 !important;
 -webkit-print-color-adjust: exact;
 }
-.page{
+.pages{
 height:297mm !important;
 width:210mm !important;
 }
