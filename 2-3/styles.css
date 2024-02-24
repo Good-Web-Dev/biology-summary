@@ -1,7 +1,6 @@
 @page{
 margin:0 !important;
-width:210mm !important;
-height:297mm !important;
+size:A4;
 padding:0 !important;
 }
 @media print{
@@ -15,6 +14,8 @@ box-shadow:0 0 0 !important;
 }
 .page, .cover{
 height:297mm !important;
+margin:0 !important;
+padding: 0 !important;
 width:210mm !important;
 }
 .dont-print{
@@ -67,6 +68,7 @@ user-select:none;
 *{
 transition:0.5s;
 -webkit-transition:0.5s;
+-webkit-tap-highlight-color:transparent;
 }
 body{
 display: flex;
