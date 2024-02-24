@@ -5,19 +5,17 @@ padding:0 !important;
 }
 @media print{
 body{
-margin:0 !important;
-padding: 0 !important;
 -webkit-print-color-adjust: exact;
 }
 .pages{
 box-shadow:0 0 0 !important;
-}
-.page, .cover{
-height:297mm !important;
 margin:0 !important;
 padding: 0 !important;
-width:210mm !important;
 }
+/*.page, .cover{
+height:297mm !important;
+width:210mm !important;
+}*/
 .dont-print{
 display:none !important;
 }
