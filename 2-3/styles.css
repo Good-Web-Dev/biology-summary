@@ -12,10 +12,6 @@ box-shadow:0 0 0 !important;
 margin:0 !important;
 padding: 0 !important;
 }
-/*.page, .cover{
-height:297mm !important;
-width:210mm !important;
-}*/
 .dont-print{
 display:none !important;
 }
@@ -163,7 +159,7 @@ background-image:url('https://good-web-dev.github.io/biology-summary/2-3/bg.svg'
 background-size:cover;
 background-color:#fff;
 background-repeat:no-repeat;
-border:0.001px transparent solid;
+box-sizing: border-box;
 box-shadow:0 0 15px #00000055;
 position:relative;
 height:297mm;
@@ -178,6 +174,7 @@ width:calc(0.97*210mm+1px);
 height:calc(0.89*297mm);
 border:0.001px transparent solid;
 padding:60px 10px 7px 10px;
+box-sizing: border-box;
 }
 .page-number{
 position:absolute;
