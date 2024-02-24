@@ -15,7 +15,6 @@ box-shadow:0 0 0 !important;
 .page, .cover{
 height:297mm !important;
 width:210mm !important;
-margin-top:50px !important;
 }
 .dont-print{
 display:none !important;
