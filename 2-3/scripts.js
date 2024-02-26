@@ -16,16 +16,16 @@ for (var i = 0; i < contentElements.length; i++) {
   }, 3000);
 
 const texts = [
-      "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ، سُبْحَانَ اللَّهِ الْعَظِيمِ",
-      "لَا إلَه إلّا اللهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلُّ شَيْءِ قَدِيرُ",
-      "لا حَوْلَ وَلا قُوَّةَ إِلا بِاللَّهِ",
-      "الْلَّهُم صَلِّ وَسَلِم وَبَارِك عَلَى سَيِّدِنَا مُحَمَّد",
-      "سُبْحَانَ الْلَّهِ، وَالْحَمْدُ لِلَّهِ، وَلَا إِلَهَ إِلَّا الْلَّهُ، وَالْلَّهُ أَكْبَرُ",
-      "الحَمْدُ للّهِ رَبِّ الْعَالَمِينَ",
-      "أَستغفِرُ اللهَ الَّذي لا إلَهَ إلَّا هو الحيُّ القيُّومُ، وأَتوبُ إليه",
-      "اللَّهُ أَكْبَرُ كَبِيرًا، وَالْحَمْدُ لِلَّهِ كَثِيرًا، وَسُبْحَانَ اللَّهِ بُكْرَةً وَأَصِيلاً",
-      "الْحَمْدُ لِلَّهِ حَمْدًا كَثِيرًا طَيِّبًا مُبَارَكًا فِيهِ",
-      "اللَّهمَّ أعنِّي على ذِكْرِكَ، وشُكْرِكَ، وحُسنِ عبادتِكَ"
+      "سبحان الله وبحمده، سبحان الله العظيم",
+      "لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير",
+      "لا حول ولا قوة إلا بالله",
+      "اللهم صلّ وسلم وبارك على سيدنا محمد",
+      "سبحان الله، والحمد لله، ولا إله إلا الله، والله أكبر",
+      "الحمد لله رب العالمين",
+      "أستغفر الله الذي لا إله إلا هو الحي القيوم، وأتوب إليه",
+      "الله أكبر كبيرًا، والحمد لله كثيرًا، وسبحان الله بكرة وأصيلًا",
+      "لا إله إلا أنت سبحانك إني كنت من الظالمين",
+      "اللهم أعني على ذكرك، وشكرك، وحسن عبادتك"
     ];
 
     let previousText = null;
@@ -66,22 +66,39 @@ if (userChoiceInVersion) {
   }
 }
 
-function colorInversionBtn(){
-document.querySelector('*').classList.toggle('inverted');
+function colorInversionBtn() {
+  document.querySelector('*').classList.toggle('inverted');
+document.querySelector('.color-inversion').classList.toggle('activated');
+  var isInverted = document.querySelector('*').classList.contains('inverted');
+  localStorage.setItem('colorInversionState', isInverted ? 'inverted' : '');
 }
 
 function examBtn() {
+document.querySelector('.exam').classList.toggle('activated');
   var tables = document.querySelectorAll('.chapters table');
   for (var i = 0; i < tables.length; i++) {
     var cells = tables[i].querySelectorAll('td:nth-child(2)');
-    cells.forEach(function(cell) {
+    cells.forEach(function (cell) {
       cell.classList.toggle('hidden-exam');
     });
   }
-var del = document.querySelectorAll('del');
-for (var j = 0; j < del.length; j++){
-del[j].classList.toggle('hidden-exam');
+  var del = document.querySelectorAll('del');
+  for (var j = 0; j < del.length; j++) {
+    del[j].classList.toggle('hidden-exam');
+  }
+  var isExamMode = tables[0].querySelector('td:nth-child(2)').classList.contains('hidden-exam');
+  localStorage.setItem('examModeState', isExamMode ? 'examMode' : '');
 }
+
+var colorInversionState = localStorage.getItem('colorInversionState');
+if (colorInversionState === 'inverted') {
+  document.querySelector('*').classList.add('inverted');
+  document.querySelector('.color-inversion').classList.add('activated');
+}
+
+var examModeState = localStorage.getItem('examModeState');
+if (examModeState === 'examMode') {
+  examBtn();
 }
 
 const imgTags = document.querySelectorAll('img');

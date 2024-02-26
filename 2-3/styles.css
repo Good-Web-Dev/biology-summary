@@ -90,11 +90,20 @@ transition-duration:0.2s;
 border:none;
 z-index:1000;
 }
+.activated{
+opacity:0.5;
+transition:0.5s;
+-webkit-transition:0.5s;
+}
+.exam, .color-inversion{
+transition:0.5s;
+-webkit-transition:0.5s;
+}
 .header-btns span{
 font-size:18px;
 font-family:helvetica-world-bold;
 }
-.header-btns:hover:active{
+.header-btns:not(.exam, .color-inversion):hover:active{
 transition-duration:0.2s;
 opacity:0.6;
 }
@@ -211,11 +220,11 @@ width:fit-content;
 padding:1px 3px;
 font-family:helvetica-world-bold;
 font-size:24px;
-border-radius:4px;
+border-radius:0px;
 position:relative;
 }
 .main-idea-content, .goals-content, .goals-content-nobg, .important-information-content, .important-information-content-nobg{
-border-radius:4px;
+border-radius:0px;
 width:190mm;
 padding:2px 3px;
 font-family:helvetica-world;
