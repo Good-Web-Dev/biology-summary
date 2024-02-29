@@ -24,7 +24,7 @@ href="https://good-web-dev.github.io/biology-summary/2-3/icon.svg" color="#fffff
 <div id="loaderBox">
 <noscript>
 <i class="fas fa fa-exclamation-triangle"></i>
- رجاءً فعّل javascript في متصفحك؛ ليعمل الموقع 
+ رجاءً فعّل JavaScript في متصفحك؛ ليعمل الموقع 
 <i class="fas fa fa-exclamation-triangle"></i>
 </noscript>
 <span>جارٍ التحميل...</span>
@@ -52,6 +52,9 @@ href="https://good-web-dev.github.io/biology-summary/2-3/icon.svg" color="#fffff
 <h3 class="header-title dont-print">
 ملخص لمادة الأحياء ٢-٣
 </h3>
+<div id="progress-bar" class="dont-print">
+<div id="progress-bar-inner" class="dont-print"></div>
+</div>
 </header>
 <div class="pages cover" data-title="ملخص لمادة الأحياء ٢-٣">
 <img data-img-name="cover" style="width:210mm; height:297mm;">
@@ -261,6 +264,18 @@ href="https://good-web-dev.github.io/biology-summary/2-3/icon.svg" color="#fffff
 <p id="footer-text"></p>
 </footer>
 </div>
+<script src="sw.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js')
+      .then(function(registration) {
+        console.log('Service Worker registered with scope:', registration.scope);
+      })
+      .catch(function(error) {
+        console.error('Service Worker registration failed:', error);
+      });
+  }
+</script>
 <script src="scripts.js"></script>
 </body>
 </html>

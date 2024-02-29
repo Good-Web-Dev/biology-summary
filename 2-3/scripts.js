@@ -15,6 +15,15 @@ for (var i = 0; i < contentElements.length; i++) {
     }
   }, 3000);
 
+window.addEventListener('scroll', function() {
+  const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+  const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
+  const clientHeight = document.documentElement.clientHeight || document.body.clientHeight;
+
+  const progress = (scrollTop / (scrollHeight - clientHeight)) * 100;
+  document.getElementById('progress-bar-inner').style.width = progress + '%';
+});
+
 const texts = [
       "سبحان الله وبحمده، سبحان الله العظيم",
       "لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير",
@@ -53,7 +62,7 @@ const texts = [
     getRandomText();
 
 function printBtn(){
-const userChoiceInPrinting = confirm('تأكد من أن جميع الصفحات قد تم تحميلها بشكل صحيح قبل الطباعة. ملاحظة: قد يختلف التصميم عند الطباعة، وقد تستغرق الطباعة وقتًا طويلًا؛ لذا تحلَّ بالصبر.');
+const userChoiceInPrinting = confirm('تأكد من أن جميع الصفحات قد تم تحميلها بشكل صحيح قبل الطباعة.\nملاحظة: قد يختلف التصميم عند الطباعة، وقد تستغرق الطباعة وقتًا طويلًا؛ لذا تحلَّ بالصبر.');
 if (userChoiceInPrinting) {
   print();
 }
@@ -62,7 +71,7 @@ if (userChoiceInPrinting) {
 function versionBtn(){
 const userChoiceInVersion = alert('هذا الإصدار الأول.');
 if (userChoiceInVersion) {
-    alert('• تعديل بعض الأخطاء الإملائية التي وُجدت. • إضافة بعض المعلومات المهمة في درسي الجهاز الهضمي، ومراحل نمو الجنين قبل الولادة. • تعديل خطأين في مخطط مكونات الجهاز المناعي.');
+    alert('');
   }
 }
 
