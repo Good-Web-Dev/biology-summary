@@ -17,11 +17,10 @@ for (var i = 0; i < contentElements.length; i++) {
 
 window.addEventListener('scroll', function() {
   const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-  const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
-  const clientHeight = document.documentElement.clientHeight || document.body.clientHeight;
-
-  const progress = (scrollTop / (scrollHeight - clientHeight)) * 100;
-  document.getElementById('progress-bar-inner').style.width = progress + '%';
+  const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const progress = (scrollTop / scrollHeight) * 100;
+  const progressBarWidth = Math.min(progress, 100) + '%';
+  document.getElementById('progress-bar-inner').style.width = progressBarWidth;
 });
 
 const texts = [
