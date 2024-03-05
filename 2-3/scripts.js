@@ -132,7 +132,7 @@ pageDivs.forEach((pageDiv, index) => {
   if (!pageDiv.classList.contains('no-page-number')) {
     const numberElement = document.createElement('p');
     numberElement.classList.add('page-number');
-    const pageNumber = index - 1 + 1;
+    const pageNumber = index;
     const easternArabicNumber = pageNumber.toLocaleString('ar-SA');
     numberElement.textContent = easternArabicNumber;
     pageDiv.appendChild(numberElement);
@@ -180,3 +180,33 @@ const observer = new IntersectionObserver(entries => {
 pages.forEach(page => {
   observer.observe(page);
 });
+
+    if (window.innerWidth < 450) {
+  var styleSheets = 'styles.css';
+  var rules = '';
+  var foundStylesheet = false;
+
+  var styleSheetsList = Array.from(document.styleSheets);
+  for (var i = 0; i < styleSheetsList.length; i++) {
+    var styleSheet = styleSheetsList[i];
+    if (styleSheet.href && styleSheet.href.includes(styleSheets)) {
+      var cssRules = styleSheet.cssRules || styleSheet.rules;
+      rules = rules.concat(Array.from(cssRules));
+      foundStylesheet = true;
+      break;
+    }
+  }
+
+  if (foundStylesheet) {
+    var rule = rules;
+
+    if (rule.style) {
+      var property = rule.style;
+      var value = rule.style.getPropertyValue(property);
+      if (value.includes('px')) {
+        var newValue = parseFloat(value) / 450 * 100;
+        rule.style.setProperty(property, newValue + 'vw');
+      }
+    }
+  }
+}
