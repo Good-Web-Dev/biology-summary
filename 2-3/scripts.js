@@ -15,14 +15,6 @@ for (var i = 0; i < contentElements.length; i++) {
     }
   }, 3000);
 
-window.addEventListener('scroll', function() {
-  const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-  const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  const progress = (scrollTop / scrollHeight) * 100;
-  const progressBarWidth = Math.min(progress, 100) + '%';
-  document.getElementById('progress-bar-inner').style.width = progressBarWidth;
-});
-
 const texts = [
       "سبحان الله وبحمده، سبحان الله العظيم",
       "لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير",
@@ -135,14 +127,13 @@ for (var i = 0; i < divElements.length; i++) {
 }
 
 const pageDivs = document.querySelectorAll('.page');
-const easternArabicNumerals = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
 
 pageDivs.forEach((pageDiv, index) => {
   if (!pageDiv.classList.contains('no-page-number')) {
     const numberElement = document.createElement('p');
     numberElement.classList.add('page-number');
-    const pageNumber = index + 1;
-    const easternArabicNumber = getPageNumberInEasternArabic(pageNumber);
+    const pageNumber = index - 1 + 1;
+    const easternArabicNumber = pageNumber.toLocaleString('ar-SA');
     numberElement.textContent = easternArabicNumber;
     pageDiv.appendChild(numberElement);
   }
