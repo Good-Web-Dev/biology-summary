@@ -125,8 +125,7 @@ filter:invert(100%) hue-rotate(180deg);
 }
 .hidden-exam{
 color:transparent;
-text-decoration:underline 2px #f00 dashed;
-text-decoration-skip-ink:none;
+text-shadow: 0px 0px 15px #000;
 }
 del{
 text-decoration:none;
